@@ -26,11 +26,16 @@ def encrypt(message, key):
 
 #Calling the methods
 generateKeys()
-publicKey, privateKey =loadKeys()
+privateKey,publicKey =loadKeys()
 
 message = input('Write your message here:')
 ciphertext = encrypt(message, publicKey)
 
+def decrypt(ciphertext, key):
+    return rsa.decrypt(ciphertext, key).decode()
+
+plaintext= rsa.decrypt(ciphertext, privateKey).decode
+print(plaintext)
 
 
 print(f'Cipher text: {ciphertext}')
